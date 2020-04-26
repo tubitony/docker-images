@@ -4,7 +4,9 @@ WORKDIR /tmp
 RUN wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb \
   && dpkg -i erlang-solutions_2.0_all.deb
 
-ENV ELIXIR_VERSION="1.10.2"
+ENV ELIXIR_VERSION="1.10.2" \
+    LANG=C.UTF-8
+
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
   esl-erlang=1:22.3.2-1 \
